@@ -1,4 +1,6 @@
 import Loading from "@/components/loading";
+import BrowseProjectsCard from "@/components/project/project-browse";
+import NewProjectCard from "@/components/project/project-new";
 import { useSession } from "next-auth/react";
 
 const Home = () => {
@@ -18,6 +20,8 @@ const Home = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-7 justify-center items-center">
+        <NewProjectCard />
+        <BrowseProjectsCard />
       </div>
     </div>
   );
