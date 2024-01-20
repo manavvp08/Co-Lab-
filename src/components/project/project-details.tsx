@@ -191,7 +191,7 @@ const ProjectDetails = ({ id }: { id: string }) => {
                                             {/* <Link href={{ pathname: '/chat', query: { id: project.id } }} className={buttonVariants()}>
                                                 Chat with Developer
                                             </Link> */}
-                                            <Button className="bg-indigo-600 hover:bg-indigo-700 text-white mt-8" onClick={handleChat} disabled={project.createdById === sessionData?.user?.id}>Chat</Button>
+                                            <Button className="bg-indigo-600 hover:bg-indigo-700 text-white" onClick={handleChat} disabled={project.createdById === sessionData?.user?.id}>Chat</Button>
                                         </>
                                     ) : (
                                         <>

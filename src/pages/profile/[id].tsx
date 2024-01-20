@@ -5,11 +5,9 @@ import Loading from "@/components/loading";
 import { useState } from "react";
 import { api } from "@/utils/api";
 import { useRouter } from "next/router";
-// import ProjectList from "@/components/project/project-list-profile";
 import ViewProjectList from "@/components/project/project-list-view";
 import Link from "next/link";
 import ShareProfileButton from "@/components/profile/share-profile-button";
-import { useEffect } from "react";
 
 const Profile = () => {
     const { data: sessionData, status } = useSession();

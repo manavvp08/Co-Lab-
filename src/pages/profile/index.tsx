@@ -1,20 +1,16 @@
 import ProjectList from "@/components/project/project-list-profile";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useSession } from "next-auth/react";
 import Loading from "@/components/loading";
-import { useState } from "react";
 import Link from "next/link";
 import { api } from "@/utils/api";
 import ShareProfileButton from "@/components/profile/share-profile-button";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 
 const Profile = () => {
     const { data: friends } = api.friend.getFriends.useQuery();
 
     const { data: sessionData, status } = useSession();
-    const router = useRouter();
 
     if (status === 'loading') {
         return <Loading />
