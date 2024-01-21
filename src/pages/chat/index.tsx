@@ -134,13 +134,14 @@ const Chat = () => {
                 </Sheet>
             </div>
             <div className="p-4 ml-0 lg:ml-64 md:ml-64 xl:ml-64 w-screen sm:mr-8 max-h-screen">
-                {!chatRooms || chatRooms.length <= 0 ? (
+                {!chatRooms || chatRooms.length <= 0 && (
                     <div className="flex flex-col items-center justify-center h-96 mt-10">
                         <MessageSquareIcon className="w-20 h-20 text-gray-400" />
                         <p className="text-gray-400 mt-5 mb-5">Find friends to start chatting!</p>
                         <Link className={`${buttonVariants()} bg-indigo-600 hover:bg-indigo-700`} href={`/friends`}>Suggestions</Link>
                     </div>
-                ) : (
+                )}
+                {!selected && (
                     <div className="flex flex-col items-center justify-center h-96 mt-10">
                         <MessageSquareIcon className="w-20 h-20 text-gray-400" />
                         <p className="text-gray-400 mt-5">Select a chat to start messaging</p>
