@@ -217,12 +217,13 @@ model User {
     Notification        Notification[]
     ProjectBookmark     ProjectBookmark[]
     ProjectComment      ProjectComment[]
-    ChatRoom            ChatRoom[]            @relation("user")
-    ChatRoomFriend      ChatRoom[]            @relation("friend")
+    ChatRoom            ChatRoom[]            @relation("user", fields: [id], references: [userId]) // Add opposite relation field here
+    ChatRoomFriend      ChatRoom[]            @relation("friend", fields: [id], references: [friendId]) // Add opposite relation field here
     Chat                Chat[]
 
     @@index([id])
 }
+
 
 model VerificationToken {
     identifier String
