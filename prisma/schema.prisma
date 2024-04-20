@@ -136,12 +136,8 @@ model Friendship {
     @@unique([userId, friendId])
 }
 
-
-
 model Chat {
     id         String   @id @default(cuid())
-    chatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id], onDelete: Cascade)
-    chatRoomId String
     message    String
     user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
     userId     String
@@ -204,8 +200,6 @@ model User {
     Notification        Notification[]
     ProjectBookmark     ProjectBookmark[]
     ProjectComment      ProjectComment[]
-    ChatRoom            ChatRoom[]            @relation("user", fields: [id], references: [userId]) // Add opposite relation field here
-    ChatRoomFriend      ChatRoom[]            @relation("friend", fields: [id], references: [friendId]) // Add opposite relation field here
     Chat                Chat[]
     
     @@index([id])
@@ -218,4 +212,5 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
 
