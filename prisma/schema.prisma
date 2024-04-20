@@ -138,9 +138,9 @@ model Friendship {
 
 model ChatRoom {
   id        String   @id @default(cuid())
-  user      User     @relation(fields: [userId], references: [id]) // Define relationship to User model
+  user      User     @relation(fields: [userId], references: [id], name: "User") // Define relationship to User model with name "User"
   userId    String
-  friend    User     @relation(fields: [friendId], references: [id]) // Define relationship to User model
+  friend    User     @relation(fields: [friendId], references: [id], name: "Friend") // Define relationship to User model with name "Friend"
   friendId  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
