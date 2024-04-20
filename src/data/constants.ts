@@ -1,1 +1,1 @@
-export const APP_NAME = "CoLink"
+export const APP_NAME = "Co(Lab)"

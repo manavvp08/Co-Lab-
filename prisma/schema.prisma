@@ -137,17 +137,18 @@ model Friendship {
 }
 
 model ChatRoom {
-    id        String   @id @default(cuid())
-    user      User     @relation(fields: [userId], references: [id], name: "user", onDelete: Cascade)
-    userId    String
-    friend    User     @relation(fields: [friendId], references: [id], name: "friend", onDelete: Cascade)
-    friendId  String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    Chat      Chat[]
-
-    @@unique([userId, friendId])
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id]) // Define relationship to User model
+  userId    String
+  friend    User     @relation(fields: [friendId], references: [id]) // Define relationship to User model
+  friendId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Chat      Chat[]
+  
+  @@unique([userId, friendId])
 }
+
 
 model Chat {
     id         String   @id @default(cuid())
